@@ -36,39 +36,39 @@ do
 		"-n")				OPT_NO_NORMINETTE=1 ;;
 		"-u")				OPT_NO_UPDATE=1 ;;
 		"-op1")				OPT_NO_PART2=1
-							OPT_NO_BONUS=1
+							OPT_NO_PART3=1
 							OPT_NO_ADDITIONAL=1
 							CHECK_IN_PART1=0
 							CHECK_IN_PART2=0
-							CHECK_IN_BONUS=0
+							CHECK_IN_PART3=0
 							CHECK_IN_ADDITIONAL=0 ;;
 		"-op2")				OPT_NO_PART1=1
-							OPT_NO_BONUS=1
+							OPT_NO_PART3=1
 							OPT_NO_ADDITIONAL=1
 							CHECK_IN_PART2=0
 							CHECK_IN_PART1=0
-							CHECK_IN_BONUS=0
+							CHECK_IN_PART3=0
 							CHECK_IN_ADDITIONAL=0 ;;
-		"-ob")				OPT_NO_PART1=1
+		"-op3")				OPT_NO_PART1=1
 							OPT_NO_PART2=1
 							OPT_NO_ADDITIONAL=1
-							CHECK_IN_BONUS=0
+							CHECK_IN_PART3=0
 							CHECK_IN_PART2=0
 							CHECK_IN_PART1=0
 							CHECK_IN_ADDITIONAL=0 ;;
 		"-oa")				OPT_NO_PART1=1
 							OPT_NO_PART2=1
-							OPT_NO_BONUS=1
+							OPT_NO_PART3=1
 							CHECK_IN_ADDITIONAL=0
-							CHECK_IN_BONUS=0
+							CHECK_IN_PART3=0
 							CHECK_IN_PART2=0
 							CHECK_IN_PART1=0 ;;
 		"-p1")				OPT_NO_PART1=1
 							CHECK_IN_PART1=0 ;;
 		"-p2")				OPT_NO_PART2=1
 							CHECK_IN_PART2=0 ;;
-		"-b")				OPT_NO_BONUS=1
-							CHECK_IN_BONUS=0 ;;
+		"-p3")				OPT_NO_PART3=1
+							CHECK_IN_PART3=0 ;;
 		"-a")				OPT_NO_ADDITIONAL=1
 							CHECK_IN_ADDITIONAL=0 ;;
 		*ft_*)	for part in ${tab_all_part[*]}
@@ -91,7 +91,7 @@ do
 								#####################
 								OPT_NO_PART1=1
 								OPT_NO_PART2=1
-								OPT_NO_BONUS=1
+								OPT_NO_PART3=1
 								OPT_NO_ADDITIONAL=1
 								#############################
 								(( ${activate_part}=1 ))
@@ -204,8 +204,8 @@ init_deepthought()
 	date >> "${PATH_DEEPTHOUGHT}"/deepthought
 	printf "$> gcc --version\n" >> "${PATH_DEEPTHOUGHT}"/deepthought
 	gcc --version >> "${PATH_DEEPTHOUGHT}"/deepthought
-	printf "$> clang --version\n" >> "${PATH_DEEPTHOUGHT}"/deepthought
-	clang --version >> "${PATH_DEEPTHOUGHT}"/deepthought
+	printf "$> cc --version\n" >> "${PATH_DEEPTHOUGHT}"/deepthought
+	cc --version >> "${PATH_DEEPTHOUGHT}"/deepthought
 }
 
 clear
@@ -283,7 +283,7 @@ then
 	fi
 fi
 
-if [ ${ACTIVATE_PART1} -eq 1 ] || [ ${ACTIVATE_PART2} -eq 1 ] || [ ${ACTIVATE_BONUS} -eq 1 ] || [ ${ACTIVATE_ADDITIONAL} -eq 1 ]
+if [ ${ACTIVATE_PART1} -eq 1 ] || [ ${ACTIVATE_PART2} -eq 1 ] || [ ${ACTIVATE_PART3} -eq 1 ] || [ ${ACTIVATE_ADDITIONAL} -eq 1 ]
 then
 	printf "Abort : ${RED}A${DEFAULT} Bus error : ${RED}B${DEFAULT} Segmentation fault : ${RED}S${DEFAULT} Timeout : ${RED}T${DEFAULT} Nothing turned in : ${RED}NTI${DEFAULT}\n"
 	printf "\n"

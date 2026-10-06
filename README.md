@@ -1,5 +1,5 @@
 # PREAMBLE
-This is an edit of prev libftest made by @jtoty to fit with the 2019 project libft. <br/>
+This fork adapts libft-war-machine to Libft subject v19.2. It derives from the 2019 tester by @jtoty and @lmartin. <br/>
 (ORIGINAL REP : https://github.com/jtoty/Libftest) <br/>
 This update was made by @lmartin <br/>
 
@@ -8,8 +8,7 @@ This update was made by @lmartin <br/>
 This repository contains script to test your libft project.
 The script will do the following tests :
 
-- Check if the author file exists
-- Check content of the author file
+- Check whether README.md meets the subject structure
 - Check if libft.h exists
 - Check norme of libft.h
 - Check if the Makefile file exists
@@ -34,7 +33,7 @@ Makefile up to date.
 ### Installation
 
 ```bash
-git clone https://github.com/y3ll0w42/libft-war-machine
+git clone https://github.com/yusuke1225math2/libft-war-machine
 ```
 
 ### Configuration
@@ -78,19 +77,19 @@ bash /path/where/you/cloned/grademe.sh
 | `-h`<br />`--help` | Display help and exit |
 | `-d` | Allows to perform the tests even if the files are in directories |
 | `-c` | Disable color |
-| `-s` | Disable searching Makefile and author files |
+| `-s` | Disable searching Makefile and README.md |
 | `-m` | When compiling library, test all the Makefile's rules (instead of doing only make re and checking if other rules exist). |
 | `-l` | Disable compiling library |
 | `-f` | Disable checking forbidden functions |
 | `-n` | Disable norminette |
-| `-u` | Disable checking updates at launch |
+| `-u` | Disable checking updates at launch (already disabled by default in this fork) |
 | `-p1` | Disable part 1 tests |
 | `-p2` | Disable part 2 tests |
-| `-b`| Disable bonus part tests |
+| `-p3` | Disable mandatory Part 3 (linked-list) tests |
 | `-a` | Disable additional part tests |
 | `-op1`| Do only part 1 tests |
 | `-op2`| Do only part 2 tests |
-| `-ob` | Do only bonus part tests |
+| `-op3` | Do only mandatory Part 3 (linked-list) tests |
 | `-oa` | Do only additional part tests |
 | `ft_function` | Test only this function |
 
@@ -101,7 +100,7 @@ bash grademe.sh ft_atoi -f ft_strlen -n
 ```
 
 ### Supported functions
-All the supported functions are listed [on this page](https://github.com/y3ll0w42/libft-war-machine/blob/master/supported_functions.md).
+All the supported functions are listed [on this page](https://github.com/yusuke1225math2/libft-war-machine/blob/master/supported_functions.md).
 ## Contribution
 
 Any suggestions or bugs reporting ?
@@ -111,3 +110,13 @@ Contact lmartin@student.42.fr
 - jtoty : https://github.com/jtoty
 - jmichaud : https://github.com/MrJe
 - tlernoul
+
+## Subject v19.2 changes
+
+- Linked-list functions are mandatory Part 3 and use `ft_lst*.c` filenames.
+- The file check expects the subject's README.md structure instead of `author`.
+- `make bonus` is not required for the mandatory test run.
+- `ft_calloc` is checked for zero-size, overflow, and distinct freeable allocations.
+- Character classification tests require exact 0 or 1 return values.
+- The old automatic update check is disabled by default to preserve local fork edits.
+- This is an unofficial test suite; compare any disagreement with `en.subject.pdf`.

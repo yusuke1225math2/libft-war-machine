@@ -6,7 +6,7 @@
 #    By: jtoty <jtoty@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/23 18:27:13 by jtoty             #+#    #+#              #
-#    Updated: 2021/02/04 07:00:42 by lmartin          ###   ########.fr        #
+#    Updated: 2026/10/06 21:56:03 by yutambo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,11 +23,11 @@
 #'0' '0' '0' '0' '0' \
 #'0' '0' '0' '0')
 
-Part1_func_authorized=('7' '7' '7' '7' \
-'7' '7' '7' '7' '7' \
-'7' '7' '7' '7' '7' \
-'7' '7' '7' '7' '7' \
-'7' '7' '7' '7')
+Part1_func_authorized=('0' '0' '1' '0' \
+'0' '0' '0' '0' '1' \
+'0' '0' '0' '0' '0' \
+'0' '0' '0' '0' '0' \
+'0' '0' '0' '0')
 
 Part1_func_activation=('0' '0' '0' '0' \
 '0' '0' '0' '0' '0' \
@@ -59,14 +59,14 @@ Part2_func=('ft_strmapi.c' 'ft_substr.c' 'ft_strjoin.c' 'ft_strtrim.c' 'ft_split
 'ft_putchar_fd.c' 'ft_putstr_fd.c' 'ft_putendl_fd.c' 'ft_putnbr_fd.c')
 
 ###################################################
-#                 Bonus functions                 #
+#                 Part3 functions                 #
 ###################################################
 
-Bonus_func=('ft_lstnew_bonus.c' 'ft_lstdelone_bonus.c' 'ft_lstclear_bonus.c' 'ft_lstadd_front_bonus.c' 'ft_lstadd_back_bonus.c' 'ft_lstsize_bonus.c' 'ft_lstiter_bonus.c' 'ft_lstmap_bonus.c' 'ft_lstlast_bonus.c')
+Part3_func=('ft_lstnew.c' 'ft_lstdelone.c' 'ft_lstclear.c' 'ft_lstadd_front.c' 'ft_lstadd_back.c' 'ft_lstsize.c' 'ft_lstiter.c' 'ft_lstmap.c' 'ft_lstlast.c')
 
-Bonus_func_activation=('0' '0' '0' '0' '0' '0' '0' '0' '0')
+Part3_func_activation=('0' '0' '0' '0' '0' '0' '0' '0' '0')
 
-Bonus_func_authorized=('3' '2' '2' '0' '0' '0' '0' '3' '0')
+Part3_func_authorized=('1' '2' '2' '0' '0' '0' '0' '3' '0')
 
 ###################################################
 #              Additional functions               #
@@ -94,7 +94,7 @@ Additional_func_authorized=('0' '0' '0' '0' '0' \
 #                 Other variables                 #
 ###################################################
 
-tab_all_part=('Part1_func' 'Part2_func' 'Bonus_func' 'Additional_func')
+tab_all_part=('Part1_func' 'Part2_func' 'Part3_func' 'Additional_func')
 
 num_sys_func=('1' '2' '4')
 system_func=('void' 'malloc' 'free' 'printf' 'write')
@@ -115,17 +115,17 @@ OPT_NO_SEARCH=0
 OPT_NO_COLOR=0
 OPT_NO_FORBIDDEN=0
 OPT_NO_NORMINETTE=0
-OPT_NO_UPDATE=0
+OPT_NO_UPDATE=1
 OPT_NO_PART1=0
 OPT_NO_PART2=0
-OPT_NO_BONUS=0
+OPT_NO_PART3=0
 OPT_NO_ADDITIONAL=0
 ACTIVATE_PART1=0
 ACTIVATE_PART2=0
-ACTIVATE_BONUS=0
+ACTIVATE_PART3=0
 ACTIVATE_ADDITIONAL=0
 CHECK_IN_PART1=1
 CHECK_IN_PART2=1
-CHECK_IN_BONUS=1
+CHECK_IN_PART3=1
 CHECK_IN_ADDITIONAL=1
 CUSTOM_DIRECTORY=1

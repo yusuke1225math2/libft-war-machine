@@ -36,44 +36,22 @@ check_makefile()
 	fi
 }
 
-check_auteur()
+check_readme()
 {
-	printf "\nAuthor file"
-	if [ -e "${PATH_LIBFT}"/auteur ] || [ -e "${PATH_LIBFT}"/author ]
-	then
-		if [ -e "${PATH_LIBFT}"/auteur ]
-		then
-			AUTHOR_VAR="auteur"
-		else
-			AUTHOR_VAR="author"
-		fi
-		printf "\033[15GCheck file content\n"
-		printf "${COLOR_OK}found${DEFAULT}"
-		if [ $(wc -l "${PATH_LIBFT}"/${AUTHOR_VAR} | tr -d ' ' | head -c 1) -gt 1 ]
-		then
-			printf "\033[15G${COLOR_FAIL}Too many lines in your file\n${DEFAULT}"
-		elif [ $(wc -c "${PATH_LIBFT}"/${AUTHOR_VAR} | tr -d ' ' | head -c 1) -eq 0 ]
-		then
-			printf "\033[15G${COLOR_FAIL}Empty file\n${DEFAULT}"
-		elif [ "$(cat -e "${PATH_LIBFT}"/${AUTHOR_VAR} | grep '\$')" != "" ]
-		then
-			if [ "$(norminette "${PATH_LIBFT}"/${AUTHOR_VAR} 2>&1 | grep command)" != "" ]
-			then
-				printf "\033[15G${COLOR_OK}$(cat "${PATH_LIBFT}"/${AUTHOR_VAR})${DEFAULT}\n"
-			else
-				if [ "$(cat "${PATH_LIBFT}"/${AUTHOR_VAR})" != "$(echo $(whoami))" ]
-				then
-					printf "\033[15G${COLOR_FAIL}Wrong login\n${DEFAULT}"
-				else
-					printf "\033[15G${COLOR_OK}$(cat "${PATH_LIBFT}"/${AUTHOR_VAR})${DEFAULT}\n"
-				fi
-			fi
-		else
-			printf "\033[15G${COLOR_FAIL}'\\\n' missing${DEFAULT}\n"
-		fi
-	else
+	printf "\nREADME.md"
+	if [ ! -f "${PATH_LIBFT}/README.md" ]; then
 		printf "${COLOR_FAIL}\nnot found${DEFAULT}\n"
+		return
 	fi
+	printf "${COLOR_OK}\nfound${DEFAULT}"
+	if ! head -n 1 "${PATH_LIBFT}/README.md" | grep -Eq '^\*This project has been created as part of the 42 curriculum by .+\*$'; then
+		printf "${COLOR_FAIL}\nrequired italic first line missing${DEFAULT}"
+	fi
+	for section in Description Instructions Resources; do
+		if ! grep -Eiq "^#{1,6} +${section}([[:space:]]|$)" "${PATH_LIBFT}/README.md"; then
+			printf "${COLOR_FAIL}\n${section} section missing${DEFAULT}"
+		fi
+	done
 	printf "\n"
 }
 
@@ -122,6 +100,6 @@ func_check_file()
 	printf "%.s${CHAR_LENGTH}" $(seq 1 ${TITLE_LENGTH})
 	printf "\n\n${DEFAULT}"
 	check_makefile
-	check_auteur
+	check_readme
 	check_header
 }

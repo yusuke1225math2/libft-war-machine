@@ -17,10 +17,12 @@
 
 void	ft_print_result(int n)
 {
-	if (n)
+	if (n == 1)
 		write(1, "1", 1);
-	else
+	else if (n == 0)
 		write(1, "0", 1);
+	else
+		write(1, "2", 1);
 }
 
 int		main(int argc, const char *argv[])

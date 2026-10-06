@@ -76,9 +76,12 @@ int		main(int argc, const char *argv[])
 	}
 	else if (arg == 6)
 	{
-		int tab[7] = {-49, 49, 1, -1, 0, -2, 2};
+		const unsigned char tab[] = {0x31, 0xff, 0x00};
 
-		printf("%s", (char *)ft_memchr(tab, -1, 7));
+		if (ft_memchr(tab, 0xff, 2) == tab + 1)
+			write(1, "1", 1);
+		else
+			write(1, "0", 1);
 	}
        	return (0);
 }

@@ -29,5 +29,34 @@ int		main(int argc, const char *argv[])
 		else
 			write(1, str, 30);
 	}
+	else if (atoi(argv[1]) == 2)
+	{
+		str = ft_calloc(0, 8);
+		write(1, str ? "OK" : "NULL", str ? 2 : 4);
+		free(str);
+	}
+	else if (atoi(argv[1]) == 3)
+	{
+		str = ft_calloc(8, 0);
+		write(1, str ? "OK" : "NULL", str ? 2 : 4);
+		free(str);
+	}
+	else if (atoi(argv[1]) == 4)
+	{
+		str = ft_calloc((size_t)-1, 2);
+		write(1, str ? "BAD" : "OK", str ? 3 : 2);
+		free(str);
+	}
+	else if (atoi(argv[1]) == 5)
+	{
+		char *other;
+
+		str = ft_calloc(0, 1);
+		other = ft_calloc(0, 1);
+		write(1, str && other && str != other ? "OK" : "BAD", str && other && str != other ? 2 : 3);
+		free(str);
+		free(other);
+	}
+
 	return (0);
 }

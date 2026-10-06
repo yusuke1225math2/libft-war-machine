@@ -25,7 +25,7 @@ check_turned_in_file()
 		retvalue=1
 		return "$retvalue"
 	else
-        if [ -e "${PATH_LIBFT}"/${SRC_DIR}/$($1 | sed 's/_bonus//g') ]
+        if [ -e "${PATH_LIBFT}/${SRC_DIR}/${1/_bonus/}" ]
 		then
 			retvalue=1
 			return "$retvalue"
